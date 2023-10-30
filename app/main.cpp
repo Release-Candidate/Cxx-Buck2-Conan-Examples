@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <iostream>
 
-auto main(int argc, char** argv) -> int {
+auto main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) -> int {
   std::cout << "HI" << std::endl;
 
   return EXIT_SUCCESS;
