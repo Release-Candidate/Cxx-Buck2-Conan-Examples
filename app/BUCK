@@ -1,0 +1,9 @@
+# buildifier: disable=no-effect
+cxx_binary(
+    name = "app",
+    srcs = ["main.cpp"],
+    link_style = "static",
+    compiler_flags = ["-std=c++2b"],
+    #deps = ["//lib:test"],
+    visibility = ["PUBLIC"],
+)

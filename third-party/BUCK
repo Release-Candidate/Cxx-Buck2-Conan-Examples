@@ -1,0 +1,369 @@
+# @generated
+# Update using `buck2 run root//:conan-update`
+
+load(
+    "@prelude//toolchains/conan:defs.bzl",
+    "conan_component",
+    "conan_dep",
+    "conan_package",
+)
+
+conan_package(
+    name = '_package_rapidcheck',
+    lockfile = 'root//:lock',
+    reference = 'rapidcheck/cci.20220514',
+    package_id = 'f1d561042996b26b17bed6c27bdc931f262eb589',
+    deps = [],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_mppp',
+    lockfile = 'root//:lock',
+    reference = 'mppp/0.27',
+    package_id = '092d5f7fda07ddc37c42e9d3be864f52d1924009',
+    deps = [':_package_gmp'],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_gmp',
+    lockfile = 'root//:lock',
+    reference = 'gmp/6.3.0',
+    package_id = '717fc8eb59a0397b4fa32e254fee5297758e515f',
+    deps = [],
+    build_deps = [':_package_m4'],
+)
+
+conan_package(
+    name = '_package_gtest',
+    lockfile = 'root//:lock',
+    reference = 'gtest/1.14.0',
+    package_id = '2e0989b314164006a0afad237a653afc8f947c64',
+    deps = [],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_benchmark',
+    lockfile = 'root//:lock',
+    reference = 'benchmark/1.8.3',
+    package_id = '62ae08a909b477ce635a0e2733a060423282f48e',
+    deps = [],
+    build_deps = [':_package_cmake'],
+)
+
+conan_package(
+    name = '_package_icu',
+    lockfile = 'root//:lock',
+    reference = 'icu/73.2',
+    package_id = 'e937bab2c4282fa2709bd2ddb30049b64d6374ff',
+    deps = [],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_cmake',
+    lockfile = 'root//:lock',
+    reference = 'cmake/3.27.7',
+    package_id = 'cc471ed355602ffa7007968c83aa4e7e648a38b5',
+    deps = [],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_m4',
+    lockfile = 'root//:lock',
+    reference = 'm4/1.4.19',
+    package_id = '3eb32b976fb0626f3c40a8b87ace72156aa44204',
+    deps = [],
+    build_deps = [],
+)
+
+conan_dep(
+    name = 'rapidcheck',
+    components = {'rapidcheck_rapidcheck': ':_component_rapidcheck_rapidcheck_rapidcheck'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_rapidcheck_rapidcheck_rapidcheck',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['rapidcheck'],
+    static_libs = {'rapidcheck': ['lib/librapidcheck.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_rapidcheck',
+)
+
+conan_dep(
+    name = 'mppp',
+    components = {'mppp': ':_component_mppp_mppp'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_mppp_mppp',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['mp++'],
+    static_libs = {},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_mppp',
+)
+
+conan_dep(
+    name = 'gtest',
+    components = {'libgtest': ':_component_gtest_libgtest', 'gtest_main': ':_component_gtest_gtest_main', 'gmock': ':_component_gtest_gmock', 'gmock_main': ':_component_gtest_gmock_main'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_gtest_libgtest',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gtest'],
+    static_libs = {'gtest': ['lib/libgtest.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_gtest',
+)
+
+conan_component(
+    name = '_component_gtest_gtest_main',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gtest_main'],
+    static_libs = {'gtest_main': ['lib/libgtest_main.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_gtest_libgtest'],
+    package = ':_package_gtest',
+)
+
+conan_component(
+    name = '_component_gtest_gmock',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gmock'],
+    static_libs = {'gmock': ['lib/libgmock.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_gtest_libgtest'],
+    package = ':_package_gtest',
+)
+
+conan_component(
+    name = '_component_gtest_gmock_main',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gmock_main'],
+    static_libs = {'gmock_main': ['lib/libgmock_main.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_gtest_gmock'],
+    package = ':_package_gtest',
+)
+
+conan_dep(
+    name = 'benchmark',
+    components = {'_benchmark': ':_component_benchmark__benchmark', 'benchmark_main': ':_component_benchmark_benchmark_main'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_benchmark__benchmark',
+    defines = ['BENCHMARK_STATIC_DEFINE'],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['benchmark'],
+    static_libs = {'benchmark': ['lib/libbenchmark.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_benchmark',
+)
+
+conan_component(
+    name = '_component_benchmark_benchmark_main',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['benchmark_main'],
+    static_libs = {'benchmark_main': ['lib/libbenchmark_main.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_benchmark__benchmark'],
+    package = ':_package_benchmark',
+)
+
+conan_dep(
+    name = 'icu',
+    components = {'icu-data': ':_component_icu_icu-data', 'icu-data-alias': ':_component_icu_icu-data-alias', 'icu-uc': ':_component_icu_icu-uc', 'icu-i18n': ':_component_icu_icu-i18n', 'icu-i18n-alias': ':_component_icu_icu-i18n-alias', 'icu-io': ':_component_icu_icu-io', 'icu-tu': ':_component_icu_icu-tu', 'icu-test': ':_component_icu_icu-test'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_icu_icu-data',
+    defines = ['U_STATIC_IMPLEMENTATION'],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icudata'],
+    static_libs = {'icudata': ['lib/libicudata.a']},
+    shared_libs = {},
+    system_libs = ['c++'],
+    deps = [],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-data-alias',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = [],
+    static_libs = {},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-data'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-uc',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icuuc'],
+    static_libs = {'icuuc': ['lib/libicuuc.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-data'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-i18n',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icui18n'],
+    static_libs = {'icui18n': ['lib/libicui18n.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-uc'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-i18n-alias',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = [],
+    static_libs = {},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-i18n'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-io',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icuio'],
+    static_libs = {'icuio': ['lib/libicuio.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-i18n', ':_component_icu_icu-uc'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-tu',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icutu'],
+    static_libs = {'icutu': ['lib/libicutu.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-i18n', ':_component_icu_icu-uc'],
+    package = ':_package_icu',
+)
+
+conan_component(
+    name = '_component_icu_icu-test',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['icutest'],
+    static_libs = {'icutest': ['lib/libicutest.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [':_component_icu_icu-tu', ':_component_icu_icu-uc'],
+    package = ':_package_icu',
+)
+
+conan_dep(
+    name = 'gmp',
+    components = {'libgmp': ':_component_gmp_libgmp', 'gmpxx': ':_component_gmp_gmpxx'},
+    visibility = [],
+)
+
+conan_component(
+    name = '_component_gmp_libgmp',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gmp'],
+    static_libs = {'gmp': ['lib/libgmp.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_gmp',
+)
+
+conan_component(
+    name = '_component_gmp_gmpxx',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['gmpxx'],
+    static_libs = {'gmpxx': ['lib/libgmpxx.a']},
+    shared_libs = {},
+    system_libs = ['m'],
+    deps = [':_component_gmp_libgmp'],
+    package = ':_package_gmp',
+)

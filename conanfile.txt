@@ -1,0 +1,7 @@
+[requires]
+rapidcheck/cci.20220514
+mppp/0.27
+gtest/1.14.0
+benchmark/1.8.3
+icu/73.2
+
