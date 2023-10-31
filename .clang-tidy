@@ -1,6 +1,5 @@
 ---
 Checks: >
-  -*,
   bugprone-*,
   google-*,
   misc-*,
@@ -8,13 +7,13 @@ Checks: >
   performance-*,
   portability-*,
   readability-*,
+  concurrency-*,
   google-readability-namespace-comments,
   google-runtime-int,
   google-runtime-references,
   misc-non-private-member-variables-in-classes,
-  readability-named-parameter,
-  readability-braces-around-statements,
-  readability-magic-numbers
+  -readability-identifier-length,
+  -readability-magic-numbers
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"
