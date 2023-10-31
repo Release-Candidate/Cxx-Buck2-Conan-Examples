@@ -1,8 +1,8 @@
 # buildifier: disable=no-effect
-cxx_binary(
-    name = "app",
-    srcs = ["main.cpp"],
-    link_style = "static",
+cxx_library(
+    name = "library",
+    srcs = glob(["*.cpp"]),
+    exported_headers = ["./lib.hpp"],
     compiler_flags = select({
         "prelude//os:linux": ["-std=c++23"],
         "prelude//os:macos": select({
@@ -36,7 +36,6 @@ cxx_binary(
         }),
         "prelude//os:windows": ["-std=c++23"],
     }),
-    deps = ["//lib:library",
-            "//third-party:argparse"],
+    #deps = ["//lib:test"],
     visibility = ["PUBLIC"],
 )

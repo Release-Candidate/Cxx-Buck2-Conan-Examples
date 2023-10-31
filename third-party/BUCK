@@ -21,8 +21,8 @@ conan_package(
     name = '_package_mppp',
     lockfile = 'root//:lock',
     reference = 'mppp/0.27',
-    package_id = 'd34af8a37e85fe552a98f652c81ae053bc4d4f34',
-    deps = [':_package_gmp'],
+    package_id = '4d0acf7967cda035042e7183aed55bf30e5814c0',
+    deps = [':_package_gmp', ':_package_mpfr'],
     build_deps = [],
 )
 
@@ -33,6 +33,15 @@ conan_package(
     package_id = '80eba286cdd99f2d01c5967b6415b7608e6c682f',
     deps = [],
     build_deps = [':_package_m4'],
+)
+
+conan_package(
+    name = '_package_mpfr',
+    lockfile = 'root//:lock',
+    reference = 'mpfr/4.2.0',
+    package_id = 'b6a92ee8cfd4bcd821ee30643b3a484608a87822',
+    deps = [':_package_gmp'],
+    build_deps = [],
 )
 
 conan_package(
@@ -58,6 +67,15 @@ conan_package(
     lockfile = 'root//:lock',
     reference = 'icu/73.2',
     package_id = '3d5a21375d0b62f73304da1983a627955f89cc6c',
+    deps = [],
+    build_deps = [],
+)
+
+conan_package(
+    name = '_package_argparse',
+    lockfile = 'root//:lock',
+    reference = 'argparse/2.9',
+    package_id = '5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9',
     deps = [],
     build_deps = [],
 )
@@ -332,6 +350,46 @@ conan_component(
     system_libs = [],
     deps = [':_component_icu_icu-tu', ':_component_icu_icu-uc'],
     package = ':_package_icu',
+)
+
+conan_dep(
+    name = 'argparse',
+    components = {'argparse': ':_component_argparse_argparse'},
+    visibility = ['PUBLIC'],
+)
+
+conan_component(
+    name = '_component_argparse_argparse',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = [],
+    static_libs = {},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_argparse',
+)
+
+conan_dep(
+    name = 'mpfr',
+    components = {'mpfr': ':_component_mpfr_mpfr'},
+    visibility = [],
+)
+
+conan_component(
+    name = '_component_mpfr_mpfr',
+    defines = [],
+    cflags = [],
+    cppflags = [],
+    include_paths = ['include'],
+    libs = ['mpfr'],
+    static_libs = {'mpfr': ['lib/libmpfr.a']},
+    shared_libs = {},
+    system_libs = [],
+    deps = [],
+    package = ':_package_mpfr',
 )
 
 conan_dep(

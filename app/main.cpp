@@ -7,13 +7,53 @@
 //
 // ==============================================================================
 
+#include <argparse/argparse.hpp>
 #include <cstdlib>
+#include <format>
 #include <iostream>
 
-auto main([[maybe_unused]] int argc, [[maybe_unused]] char** argv) -> int {
-  std::cout << "HI" << '\n';
+#include "lib/lib.hpp"
 
-  int* a = static_cast<int*>(malloc(5));
+/**
+ * Parse the command line arguments and return an object containing the result.
+ *
+ * `argc` - The number of command line arguments.
+ * `argv` - The array of command line arguments.
+ *
+ * Return (`argparse::ArgumentParser`): The object containing the command line
+ *                                      arguments.
+ */
+auto parse_commandline(int argc, char** argv) -> argparse::ArgumentParser {
+  argparse::ArgumentParser program("app", "0.1.2");
+  program.add_description("This is just a app to test Buck 2 with C++.");
+  program.add_epilog(
+      "See https://github.com/Release-Candidate/Cxx-Buck2-Examples for "
+      "details.");
+
+  try {
+    program.parse_args(argc, argv);
+
+  } catch (const std::exception& err) {
+    std::cerr << err.what() << '\n';
+    std::cerr << program;
+    exit(EXIT_FAILURE);  // NOLINT(concurrency-mt-unsafe)
+  }
+
+  return program;
+}
+
+/**
+ * The main entry point of the program.
+ *
+ * `argc` - The number of command line arguments.
+ * `argv` - The array of command line arguments.
+ *
+ * Return (`int`): 0 on success, 1 - `EXIT_FAILURE` on errors.
+ */
+auto main(int argc, char** argv) -> int {
+  std::cout << std::format("HI, foo(42) said {}\n", foo(42));
+
+  auto program = parse_commandline(argc, argv);
 
   return EXIT_SUCCESS;
 }

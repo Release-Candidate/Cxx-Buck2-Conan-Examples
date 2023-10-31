@@ -1,7 +1,7 @@
 load(
     "@prelude//toolchains/conan:defs.bzl",
-    "conan_init", 
-    "conan_profile", 
+    "conan_init",
+    "conan_profile",
     "system_conan_toolchain"
 )
 load("@prelude//toolchains:cxx.bzl", "system_cxx_toolchain")
@@ -10,6 +10,7 @@ load("@prelude//toolchains:python.bzl", "system_python_bootstrap_toolchain")
 
 system_cxx_toolchain(
     name = "cxx",
+    cxx_compiler = select({ "prelude//os:macos": "/opt/homebrew/opt/llvm/bin/clang++"}),
     visibility = ["PUBLIC"],
 )
 
@@ -87,4 +88,3 @@ conan_init(
     profile = ":conan-profile",
     visibility = ["PUBLIC"],
 )
-

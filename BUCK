@@ -5,6 +5,8 @@ load(
     "conan_update",
     "lock_generate",
 )
+load("//concat_compile_cmds:defs.bzl", "concat_compile_cmds")
+
 
 conan_lock(
     name = "lock",
@@ -37,4 +39,13 @@ conan_update(
     lockfile = ":lock",
     lockfile_name = "conan.lock",
     targets_name = "third-party/BUCK",
+)
+
+
+concat_compile_cmds(
+    name="compile_commands",
+    files=[
+        "//app:app[full-compilation-database]",
+        "//lib:library[full-compilation-database]",
+    ],
 )
