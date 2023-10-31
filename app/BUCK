@@ -3,7 +3,20 @@ cxx_binary(
     name = "app",
     srcs = ["main.cpp"],
     link_style = "static",
-    compiler_flags = ["-std=c++2b"],
+    compiler_flags = select({
+        "prelude//os:linux": ["-std=c++2b"],
+        "prelude//os:macos": select({
+            "prelude//cpu:arm64": [ "-std=c++2b",
+                                    "-L/opt/homebrew/opt/llvm/lib/c++",
+                                    "-Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++",
+                                    "-I/opt/homebrew/opt/llvm/include/c++/v1/"],
+            "prelude//cpu:x86_64": ["-std=c++2b",
+                                    "-L/opt/homebrew/opt/llvm/lib/c++",
+                                    "-Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++",
+                                    "-I/opt/homebrew/opt/llvm/include/c++/v1/"],
+        }),
+        "prelude//os:windows": ["-std=c++2b"],
+    }),
     #deps = ["//lib:test"],
     visibility = ["PUBLIC"],
 )

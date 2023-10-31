@@ -54,9 +54,9 @@ conan_profile(
     name = "conan-profile-macos-arm64",
     arch = "armv8",
     build_type = "Release",
-    compiler = "apple-clang",
+    compiler = "clang",
     compiler_libcxx = "libc++",
-    compiler_version = "15",
+    compiler_version = "16",
     os = "Macos",
 )
 
