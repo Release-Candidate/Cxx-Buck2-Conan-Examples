@@ -3,6 +3,7 @@ cxx_library(
     name = "library",
     srcs = glob(["*.cpp"]),
     exported_headers = ["./lib.hpp"],
+    link_style = "static",
     compiler_flags = select({
         "prelude//os:linux": ["-std=c++23"],
         "prelude//os:macos": select({
@@ -36,6 +37,6 @@ cxx_library(
         }),
         "prelude//os:windows": ["-std=c++23"],
     }),
-    #deps = ["//lib:test"],
+    deps = ["//third-party:gmp"],
     visibility = ["PUBLIC"],
 )

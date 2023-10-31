@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <format>
 #include <iostream>
+#include <memory>
 
 #include "lib/lib.hpp"
 
@@ -38,6 +39,11 @@ auto parse_commandline(int argc, char** argv) -> argparse::ArgumentParser {
     std::cerr << program;
     exit(EXIT_FAILURE);  // NOLINT(concurrency-mt-unsafe)
   }
+
+  std::unique_ptr<mpf_class> r =
+      mppp_test("1.1897314953572317650857593266280070163e4932");
+
+  std::cout << std::setprecision(100) << "r is " << *r << "\n";
 
   return program;
 }

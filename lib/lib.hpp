@@ -7,6 +7,8 @@
 //
 // ==============================================================================
 
+#include <gmpxx.h>
+#include <memory>
 #include <string>
 
 /**
@@ -17,3 +19,5 @@
  * Return (`std::string`): `i` as string.
  */
 auto foo(int i) -> std::string;
+
+auto mppp_test(const std::string& s) -> std::unique_ptr<mpf_class>;

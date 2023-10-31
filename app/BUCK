@@ -37,6 +37,7 @@ cxx_binary(
         "prelude//os:windows": ["-std=c++23"],
     }),
     deps = ["//lib:library",
-            "//third-party:argparse"],
+            "//third-party:argparse",
+            "//third-party:gmp"],
     visibility = ["PUBLIC"],
 )
