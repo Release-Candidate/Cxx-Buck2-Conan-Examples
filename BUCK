@@ -50,3 +50,21 @@ concat_compile_cmds(
         "//test:test[full-compilation-database]",
     ],
 )
+
+alias(
+    name="exe",
+    actual="//app:app",
+    visibility=["PUBLIC"],
+)
+
+alias(
+    name="lib",
+    actual="//lib:library",
+    visibility=["PUBLIC"],
+)
+
+alias(
+    name="test",
+    actual="//test:test",
+    visibility=["PUBLIC"],
+)
