@@ -35,9 +35,9 @@ conan_profile(
     name = "conan-profile-linux",
     arch = "x86_64",
     build_type = "Release",
-    compiler = "gcc",
+    compiler = "clang",
     compiler_libcxx = "libstdc++",
-    compiler_version = "11.3",
+    compiler_version = "16",
     os = "Linux",
 )
 
@@ -47,7 +47,7 @@ conan_profile(
     build_type = "Release",
     compiler = "clang",
     compiler_libcxx = "libc++",
-    compiler_version = "15",
+    compiler_version = "16",
     os = "Macos",
 )
 
@@ -65,9 +65,9 @@ conan_profile(
     name = "conan-profile-windows",
     arch = "x86_64",
     build_type = "Release",
-    compiler = "gcc",
+    compiler = "clang",
     compiler_libcxx = "libstdc++",
-    compiler_version = "11.3",
+    compiler_version = "16",
     os = "Windows",
 )
 

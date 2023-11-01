@@ -8,9 +8,22 @@
 		"[python]": {
 			"editor.defaultFormatter": "ms-python.black-formatter"
 		},
-		"python.formatting.provider": "none",
 		"cSpell.words": [
 			"mppp"
+		],
+		"testMate.cpp.test.advancedExecutables": [
+			{
+				"pattern": "./buck-out/v2/gen/root/**/test/**/test*",
+			}
 		]
-	}
+	},
+	"extensions": {
+		"recommendations": [
+			"matepek.vscode-catch2-test-adapter",
+			"llvm-vs-code-extensions.vscode-clangd",
+			"jeff-hykin.better-cpp-syntax",
+			"peerstudios.buck2-lsp-adapter",
+			"konicy.conan-extension"
+		]
+	},
 }
