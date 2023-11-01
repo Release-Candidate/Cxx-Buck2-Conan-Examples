@@ -8,7 +8,8 @@ A C++ example repository using Buck 2 with Conan (the C++ package manager) and s
   - [Buck 2 Files](#buck-2-files)
 - [Converting an Existing or Generating a new C++ Project with Buck 2](#converting-an-existing-or-generating-a-new-c-project-with-buck-2)
 - [Other Buck 2 C++ Examples](#other-buck-2-c-examples)
-- [Buck 2 Examples for other languages](#buck-2-examples-for-other-languages)
+- [Buck 2 Examples for other Languages](#buck-2-examples-for-other-languages)
+- [Contributions](#contributions)
 - [License](#license)
 
 ## Installation
@@ -79,9 +80,13 @@ Install Buck 2 like documented at [Buck 2 - Getting Started](https://buck2.build
 - The official Conan examples: [Facebook: Buck 2 C++ Conan Examples](https://github.com/facebook/buck2/tree/main/examples/toolchains/conan_toolchain)
 - Rust and C++ interop examples [Interop Between C++ and Rust](https://github.com/dtolnay/cxx)
 
-## Buck 2 Examples for other languages
+## Buck 2 Examples for other Languages
 
 I've also made examples for OCaml: [OCaml-Buck-2-Examples](https://github.com/Release-Candidate/OCaml-Buck-2-Examples).
+
+## Contributions
+
+If you want to add tips or tricks on using Buck 2, examples, a link to other examples, blog or forum posts, or found an error, please open an issue or pull request with your changes.
 
 ## License
 
