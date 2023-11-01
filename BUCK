@@ -47,5 +47,6 @@ concat_compile_cmds(
     files=[
         "//app:app[full-compilation-database]",
         "//lib:library[full-compilation-database]",
+        "//test:test[full-compilation-database]",
     ],
 )
