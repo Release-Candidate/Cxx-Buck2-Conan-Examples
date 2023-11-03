@@ -1,6 +1,7 @@
 /buck-out
 compile_commands.json
 .cache/
+conan_deps.json
 
 # MacOS special files
 .DS_Store
