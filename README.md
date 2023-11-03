@@ -76,6 +76,7 @@ Install Buck 2 like documented at [Buck 2 - Getting Started](https://buck2.build
 
 ## Other Buck 2 C++ Examples
 
+- I have also written an example repository using vcpkg as package manager: [Cxx-Buck2-vcpkg-Examples](https://github.com/Release-Candidate/Cxx-Buck2-vcpkg-Examples)
 - The official examples: [Facebook: Buck 2 C++ Examples](https://github.com/facebook/buck2/tree/main/examples/with_prelude/cpp)
 - The official Conan examples: [Facebook: Buck 2 C++ Conan Examples](https://github.com/facebook/buck2/tree/main/examples/toolchains/conan_toolchain)
 - Rust and C++ interop examples [Interop Between C++ and Rust](https://github.com/dtolnay/cxx)
