@@ -17,7 +17,7 @@ A C++ example repository using Buck 2 with Conan (the C++ package manager) and s
 You need the following:
 
 - Buck 2: [Buck2 Official Website](https://buck2.build/)
-- Conan 1 [GitHub Releases - Conan 1.6](https://github.com/conan-io/conan/releases/tag/1.61.0). On MacOS with Homebrew: `brew install conan@1`. **Warning**: Conan 2 does not work.
+- Conan 1 [GitHub Releases - Conan 1.6](https://github.com/conan-io/conan/releases/tag/1.61.0) - See [Buck 2 Issue](https://github.com/facebook/buck2/issues/469). On MacOS with Homebrew: `brew install conan@1`. **Warning**: Conan 2 does not work.
 - Python 3, Python 3.8 or newer.
 
 Install Buck 2 like documented at [Buck 2 - Getting Started](https://buck2.build/docs/getting_started/).
