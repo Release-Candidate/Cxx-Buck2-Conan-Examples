@@ -1,5 +1,5 @@
 # buildifier: disable=no-effect
-cxx_binary(
+cxx_test(
     name = "test",
     srcs = ["test_main.cpp"],
     link_style = "static",
