@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repositor has been moved to [Codeberg: Cxx-Buck2-Conan-Examples](https://codeberg.org/Release-Candidate/Cxx-Buck2-Conan-Examples)
+
 # Cxx-Buck2-Conan-Examples
 
 A C++ example repository using Buck 2 with Conan (the C++ package manager) and scripts to generate a single `./compile_commands.json` file.
